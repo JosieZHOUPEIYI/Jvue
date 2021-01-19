@@ -1,0 +1,28 @@
+<div id="app">
+</div>
+<script>
+function defineProperty(obj,key,val){
+    Object.defineProperty(obj,key,{
+        get(){
+            return val
+        },
+        set(v){
+            if(val !==v){
+                val = v
+                update(val)
+            }
+        }
+    })
+}
+function update(val){
+    // 更新dom
+    // var app = document.getElementById('app')
+    app.innerHTML = val
+}
+var obj = {}
+defineProperty(obj,'name','0')
+setInterval(()=>{
+    obj.name = new Date().getTime()
+},1000)
+</script>
+</html>
